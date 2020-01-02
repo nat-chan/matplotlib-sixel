@@ -48,7 +48,7 @@ def display(figure):
 
     resize_fig(figure)
 
-    p = Popen(["convert", "-colors", '16', 'png:-', 'sixel:-'], stdin=PIPE)
+    p = Popen(["img2sixel"], stdin=PIPE)
     figure.savefig(p.stdin, format='png')
     p.stdin.close()
     p.wait()
